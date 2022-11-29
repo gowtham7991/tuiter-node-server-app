@@ -9,9 +9,18 @@ const TuitController = (app) => {
 
 const createTuit = async (req, res) => {
     const newTuit = req.body;
-    
+    newTuit.topic = "Trending";
+    newTuit.userName = "Nasa";
+    newTuit.handle = "@nasa";
+    newTuit.time = "1h";
+    newTuit.image = "nasa.png";
+    newTuit.title = "";
     newTuit.likes = 0;
+    newTuit.dislikes = 0;
+    newTuit.replies = 0;
+    newTuit.retuits = 0;
     newTuit.liked = false;
+    console.log(newTuit)
     const insertedTuit = await tuitsDao.createTuit(newTuit);
     res.json(insertedTuit);
   }
